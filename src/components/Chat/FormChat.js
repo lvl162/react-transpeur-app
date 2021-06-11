@@ -56,7 +56,7 @@ function FormChat(props) {
                 senderId: senderId,
                 content: mess
             }));
-            setTimeout(setMess(''), 300);
+            setMess('');
         }
     }
 
