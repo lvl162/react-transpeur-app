@@ -56,7 +56,7 @@ function FormChat(props) {
                 senderId: senderId,
                 content: mess
             }));
-            setMess('');
+            // setMess('');
         }
     }
 
@@ -135,18 +135,22 @@ function FormChat(props) {
             <SockJsClient url={SOCKET_URL}
                 topics={[`/topic/${idChat}/queue/messages`]}
                 onConnect={() => {
-
+                    // console.log(idChat + " connect");
                 }}
                 onDisconnect={() => {
+                    // console.log(idChat + "dis connect");
 
                 }}
                 onMessage={async (msg) => {
 
                     message.push(msg);
+                    if (msg.senderId === senderId) {
+                        setMess('')
+                    }
                     await dispatch(FetchChat2({ id: senderId, header: header }));
                     await dispatch(FetchChat({ id: senderId, header: header }));
                     scrollToBottom();
-
+                   
                     //setMessage([...message]);
                 }}
                 ref={(client) => {
