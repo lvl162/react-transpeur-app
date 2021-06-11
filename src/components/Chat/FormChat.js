@@ -135,10 +135,10 @@ function FormChat(props) {
             <SockJsClient url={SOCKET_URL}
                 topics={[`/topic/${idChat}/queue/messages`]}
                 onConnect={() => {
-                    // console.log(idChat + " connect");
+                    console.log(idChat + " connect");
                 }}
                 onDisconnect={() => {
-                    // console.log(idChat + "dis connect");
+                    console.log(idChat + "dis connect");
 
                 }}
                 onMessage={async (msg) => {
@@ -150,7 +150,7 @@ function FormChat(props) {
                     await dispatch(FetchChat2({ id: senderId, header: header }));
                     await dispatch(FetchChat({ id: senderId, header: header }));
                     scrollToBottom();
-                   
+
                     //setMessage([...message]);
                 }}
                 ref={(client) => {
