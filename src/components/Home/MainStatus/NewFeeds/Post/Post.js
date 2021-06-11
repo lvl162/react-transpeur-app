@@ -34,6 +34,7 @@ function Post(props) {
         if (interval > 1) {
             return Math.floor(interval) + " phút";
         }
+        if (seconds < 0) return "Vừa đăng";
         return Math.floor(seconds) + " giây";
     }
 
