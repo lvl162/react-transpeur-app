@@ -99,8 +99,8 @@ function ChangePassword(props) {
                         <button type="submit" className="flex items-center justify-center mr-3 py-2 px-4 rounded-lg bg-blue-400 text-white cursor-pointer opacity-80 hover:opacity-100 duration-300"
                             onClick={HandleSubmit}
                         >
-                           <span>Thay đổi</span>
-                           {loading && (
+                            <span>Thay đổi</span>
+                            {loading && (
                                 <div className="duration-300 loader ease-linear rounded-full border-4 border-t-4 border-gray-200 h-5 w-5 ml-3"></div>
                             )}
                         </button>

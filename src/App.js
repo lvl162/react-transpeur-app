@@ -81,9 +81,9 @@ function App(props) {
 
 
 	const doSomeThing = async (e) => {
-		var message = "\o/";
+		// var message = "\o/";
 
-		(e || window.event).returnValue = message; //Gecko + IE
+		// (e || window.event).returnValue = message; //Gecko + IE
 
 		// await axios.get(`https://chatchit69.herokuapp.com/api/active/disconnect/${username}`, {
 		// 	headers: {
@@ -93,7 +93,7 @@ function App(props) {
 		function sendSimpleBeacon(data) {
 			if (!navigator.sendBeacon) return;
 
-			var url = "http://localhost:8080/api/active/disconnect";
+			var url = "https://chatchit69.herokuapp.com/api/active/disconnect";
 			var data = "data=" + data;
 
 			var status = navigator.sendBeacon(url + "?" + data);
