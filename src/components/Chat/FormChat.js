@@ -106,7 +106,6 @@ function FormChat(props) {
                     <div className="pt-4">
                         {elm}
                         <div ref={messagesEndRef} />
-                        {scrollToBottom()}
                     </div>
 
                 </Scrollbars>

@@ -81,24 +81,35 @@ function App(props) {
 
 
 	const doSomeThing = async (e) => {
-		// var message = "\o/";
+		var message = "\o/";
 
-		// (e || window.event).returnValue = message; //Gecko + IE
+		(e || window.event).returnValue = message; //Gecko + IE
 
-		await axios.get(`https://chatchit69.herokuapp.com/api/active/disconnect/${username}`, {
-			headers: {
-				'Authorization': `Bearer ${accessToken}`
-			}
-		}).then(res => res);
-		// console.log(message);
-		setTimeout(function () { return; }, 200)
+		// await axios.get(`https://chatchit69.herokuapp.com/api/active/disconnect/${username}`, {
+		// 	headers: {
+		// 		'Authorization': `Bearer ${accessToken}`
+		// 	}
+		// }).then(res => console.log(res.data));
+		function sendSimpleBeacon(data) {
+			if (!navigator.sendBeacon) return;
+
+			var url = "http://localhost:8080/api/active/disconnect";
+			var data = "data=" + data;
+
+			var status = navigator.sendBeacon(url + "?" + data);
+			console.log("Status of sendBeacon: " + status);
+		}
+		sendSimpleBeacon(username)
+		// setTimeout(function () { return; }, 200)
+
+		// return message;
 		// return message;
 	}
 
 	const setupBeforeUnLoad = () => {
 		window.addEventListener('beforeunload', (e) => {
 			e.preventDefault();
-			return doSomeThing(e);
+			return doSomeThing();
 		})
 	}
 
@@ -113,7 +124,7 @@ function App(props) {
 		}).then(res => res);
 		//dispatch(onLogout())
 		//dispatch(changeOption(0));
-	}, [accessToken])
+	}, [accessToken, username])
 
 	async function FetchData() {
 		const db = await new Promise((a, b) => {
