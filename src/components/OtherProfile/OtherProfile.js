@@ -9,29 +9,31 @@ import { useDispatch, useSelector } from 'react-redux';
 import Introduce from './Introduce';
 import MyPost from './MyPost';
 import Rating from './Rating';
-import {FetchPost} from '../../reducers/fetchMyPost';
+import { FetchPost } from '../../reducers/fetchMyPost';
 
-function OtherProfile({ match }) {
+function OtherProfile(props) {
 
-    const dispatch = useDispatch();
-
-    const token = useSelector(state => state.CheckLogin.current.accessToken);
-
-    const Post = useSelector(state => state.MyPost);
+    const {name} = props;
 
     const [infoUser, setInfoUser] = useState({});
 
+    const token = useSelector(state => state.CheckLogin.current.accessToken);
+
+    const dispatch = useDispatch();
+
+    const Post = useSelector(state => state.MyPost);
+
     useEffect(() => {
         async function fetchData() {
-            await axios.get(`${Config.API_URL}/api/user-information/uname/${match.params.id}`, {
+            await axios.get(`${Config.API_URL}/api/user-information/uname/${name}`, {
                 headers: {
                     'Authorization': `Bearer ${token}`
                 }
             }).then(res => setInfoUser(res.data));
-            await dispatch(FetchPost({username: match.params.id, header: token}));
+            await dispatch(FetchPost({ username: name, header: token }));
         }
         fetchData();
-    }, [token, match]);
+    }, [token, name]);
 
     return <div className="w-full relative">
         <div className="shadow header fixed w-full bg-white">
@@ -45,7 +47,7 @@ function OtherProfile({ match }) {
                 <HeaderOtherProfile id={infoUser ? infoUser.id : ""} name={infoUser ? `${infoUser.lastName} ${infoUser.firstName}` : ""} />
                 <div className="w-full flex pt-2">
                     <div className="w-1/3 mr-4 mt-4">
-                        <Introduce arr={infoUser}/>
+                        <Introduce arr={infoUser} />
                         <Rating />
                     </div>
                     <div className="w-2/3">

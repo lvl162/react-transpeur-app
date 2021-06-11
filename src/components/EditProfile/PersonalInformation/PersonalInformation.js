@@ -12,8 +12,6 @@ function PersonalInformation(props) {
 
     const dispatch = useDispatch();
 
-    //const Information = useSelector(state => state.Information);
-
     const User = useSelector(state => state.CheckLogin);
 
     const [info, setInfo] = useState({...User.current.userInfo})
@@ -43,6 +41,17 @@ function PersonalInformation(props) {
         setLoading(true);
         e.preventDefault();
         try {
+            setInfo({
+                id: User.current.id,
+                firstName: info.firstName,
+                lastName: info.lastName,
+                idCardNumber: info.idCardNumber,
+                address: info.address,
+                phoneNumber: info.phoneNumber,
+                age: info.age,
+                gender: info.gender,
+                dob: info.dob,
+            })
             const actionResult = await dispatch(changeInfo({
                 id: User.current.id,
                 firstName: info.firstName,

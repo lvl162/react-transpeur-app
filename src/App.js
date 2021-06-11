@@ -5,7 +5,7 @@ import firebase from 'firebase';
 import { setData } from './reducers/place';
 import { useDispatch, useSelector } from 'react-redux';
 import { onLogin } from './reducers/login-register';
-import ContactsGrid from './Admin/Component/Contacts/ContactsGrid';
+import ContactGridPage from './pages/ContactGridPage';
 //import {changeOption} from './reducers/optionShow';
 import { fetchUser } from './reducers/FetchAllUser';
 //import { onLogout } from './reducers/checkLogin';
@@ -13,6 +13,7 @@ import { positions, Provider } from "react-alert";
 import AlertTemplate from "react-alert-template-basic";
 import axios from 'axios';
 import * as Config from './constants/Config';
+import Error from './pages/Error';
 
 
 function App(props) {
@@ -39,12 +40,17 @@ function App(props) {
 				ROUTES.push({
 					path: "/admin/contactsGrid",
 					exact: true,
-					main: ContactsGrid,
+					main: ContactGridPage,
 				});
 				fetchData();
 			}
 		})
 	}
+	ROUTES.push({
+		path: "*",
+		exact: true,
+		main: Error,
+	});
 
 	const doSomeThing = () => {
 		axios.get(`https://chatchit69.herokuapp.com/api/active/disconnect/${username}`, {
@@ -70,7 +76,7 @@ function App(props) {
 				'Authorization': `Bearer ${accessToken}`
 			}
 		}).then(res => res);
-		// dispatch(onLogout())
+		//dispatch(onLogout())
 		//dispatch(changeOption(0));
 	}, [accessToken])
 

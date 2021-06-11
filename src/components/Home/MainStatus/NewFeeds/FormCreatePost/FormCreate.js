@@ -66,7 +66,6 @@ function FormCreate(props) {
                     'Authorization': `Bearer ${User.current.accessToken}`
                 }
             }).then(res => {
-                console.log(res);
                 if (res.status === 200) {
                     dispatch(FetchList(User.current.accessToken));
                     setLoading(false);

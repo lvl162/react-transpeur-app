@@ -6,8 +6,6 @@ import { FetchConversation } from '../reducers/conversation';
 
 function ChatPage({ match }) {
 
-    console.log(match)
-
     const dispatch = useDispatch();
 
     const userID = useSelector(state => state.CheckLogin.current.id);
@@ -27,6 +25,10 @@ function ChatPage({ match }) {
             return a.createdAt.localeCompare(b.createdAt);
         })
     }
+
+    useEffect(() => {
+        document.title = 'Nhắn tin | Transper'
+    }, []);
 
     useEffect(() => {
         async function fetchData() {

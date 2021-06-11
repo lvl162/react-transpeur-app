@@ -1,15 +1,13 @@
 import React, {useEffect} from 'react';
 import { useSelector } from "react-redux";
 import { Redirect } from "react-router";
-import Profile from '../components/Profile/Profile';
+import ContactsGrid from '../Admin/Component/Contacts/ContactsGrid';
 
-function ProfilePage(props) {
-
-    const userInfo = useSelector(state => state.CheckLogin.current.userInfo);
+function ContactsGridPage({match}) {
 
     useEffect(() => {
-        document.title = userInfo ? `${userInfo.lastName} ${userInfo.firstName} | Transper` : "";
-    }, [userInfo]);
+        document.title = 'Quản lý người dùng | Transper'
+    }, []);
 
     const Active = useSelector(state => state.CheckLogin);
 
@@ -17,8 +15,8 @@ function ProfilePage(props) {
         return <Redirect to="/login" />
     }
     else return <div className="w-full">
-        <Profile />
+        <ContactsGrid />
     </div>
 }
 
-export default ProfilePage;
+export default ContactsGridPage;

@@ -1,10 +1,13 @@
-import React, { useState } from 'react';
-import ClassNames from 'classnames';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 function HeaderOtherProfile(props) {
 
     const {id, name} = props;
+
+    useEffect(() => {
+        document.title = name ? `${name} | Transper` : "";
+    }, [name]);
 
     return (
         <div className="bg-white relative rounded-md">

@@ -37,7 +37,7 @@ function ChangePassword(props) {
         if (changePass.oldPassword === '' || changePass.newPassword === '' || changePass.verifyPassword === '') {
             setLoading(false);
             setCheck(false);
-            setMess('Mật khẩu hiện tại không đúng!!!');
+            setMess('Không được để trống!!!');
         }
         else if (changePass.newPassword !== changePass.verifyPassword) {
             setLoading(false);

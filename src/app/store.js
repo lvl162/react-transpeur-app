@@ -2,6 +2,7 @@ import { createStore } from '@reduxjs/toolkit';
 import { combineReducers} from "redux";
 import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
+import { composeWithDevTools } from 'redux-devtools-extension';
 
 import CheckLogin from './../reducers/checkLogin';
 import ShowModal from './../reducers/showModal';
@@ -25,6 +26,7 @@ import MyPost from './../reducers/fetchMyPost';
 import Information from './../reducers/changeInformation';
 import FetchListChat2 from './../reducers/FetchListChat2';
 import ActiveUser from './../reducers/ActiveUser';
+import Account from './../reducers/username-password';
 
 
 const rootReducer = combineReducers({
@@ -47,6 +49,7 @@ const rootReducer = combineReducers({
     Information: Information,
     FetchListChat2: FetchListChat2,
     ActiveUser: ActiveUser,
+    Account: Account
 });
 
 const persistConfig = {
@@ -54,12 +57,12 @@ const persistConfig = {
     storage
 }
 
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
+//const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 export default () => {
-    let store = createStore(persistedReducer, composeEnhancers(applyMiddleware(thunk)))
+    let store = createStore(persistedReducer, composeWithDevTools(applyMiddleware(thunk)))
     let persistor = persistStore(store)
     return {store, persistor}
 }

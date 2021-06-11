@@ -18,7 +18,7 @@ const login = createSlice({
     reducers: {
         onLogout: (state) => {
             return {
-                current: {},
+                ...state,
                 isAuth: false
             }
 

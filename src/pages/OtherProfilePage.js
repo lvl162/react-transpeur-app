@@ -11,7 +11,7 @@ function OtherProfilePage({match}) {
         return <Redirect to="/login" />
     }
     else return <div className="w-full">
-        <OtherProfile />
+        <OtherProfile name={match.params.id}/>
     </div>
 }
 

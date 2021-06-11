@@ -74,7 +74,6 @@ function RegisterForm(props) {
             })
                 .then(res => {
                     if (res.status === 200) {
-                        console.log(res)
                         setCheck(true);
                         setLoading(false);
                         alert.success('Tạo tài khoản thành công !');

@@ -19,6 +19,8 @@ function Header(props) {
 
 	const history = useHistory();
 
+	const User = useSelector(state => state.CheckLogin.isAuth);
+
 	const InfoUser = useSelector(state => state.CheckLogin.current.userInfo);
 
 	const token = useSelector(state => state.CheckLogin.current.accessToken);
@@ -69,7 +71,7 @@ function Header(props) {
 				<div className="flex items-center">
 					<ul className="flex items-center">
 						<li className="bg-avataImage h-12 w-12 bg-cover rounded-full cursor-pointer"></li>
-						<li className="mx-4 cursor-pointer">{`${InfoUser.lastName} ${InfoUser.firstName}`}</li>
+						<li className="mx-4 cursor-pointer">{InfoUser ? `${InfoUser.lastName} ${InfoUser.firstName}` : ""}</li>
 						<Link to="/" className="text-blue-300 mx-4 cursor-pointer" onClick={() => dispatch(changeOption(0))}>
 							<svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 								<path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
@@ -96,8 +98,7 @@ function Header(props) {
 						{
 							option && <div className="absolute w-80 right-0 top-12 mt-1 z-50 shadow-xl animate-fade-in-up">
 								<div className="text-white bg-blue-400 py-4 px-3 rounded-t-md font-sans">
-									<h5 className="text-xl">Xin chào Khoi Kevin</h5>
-									<p className="text-xs">Available</p>
+									<h5 className="text-xl">{InfoUser ? `Xin chào ${InfoUser.lastName} ${InfoUser.firstName}` : ""}</h5>
 								</div>
 								<div className="bg-white py-4 px-3 cursor-pointer flex items-center border-b border-gray-50 hover:bg-gray-100 duration-500"
 									onClick={() => {

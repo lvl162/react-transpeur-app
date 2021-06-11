@@ -5,7 +5,7 @@ import ChatPage from "./pages/ChatPage";
 import EditProfilePage from "./pages/EditProfilePage";
 import Error from "./pages/Error";
 import ProfilePage from "./pages/Profile";
-import OtherProfile from "./components/OtherProfile/OtherProfile";
+import OtherProfilePage from "./pages/OtherProfilePage";
 
 const ROUTES = [
   {
@@ -46,8 +46,13 @@ const ROUTES = [
   {
     path: "/profile/:id",
     exact: true,
-    main: OtherProfile
-  }
+    main: OtherProfilePage
+  },
+  // {
+  //   path: "*",
+  //   exact: true,
+  //   main: Error
+  // }
 ];
 
 export default ROUTES;

@@ -109,6 +109,7 @@ function Search(props) {
                     <div className={`inline-block relative font-thin text-base `} style={{ width: "164px" }}>
                         <select className="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-2 py-2 rounded leading-tight focus:outline-none focus:shadow-outline"
                             name="transport" value={search.transport} onChange={HandleChangeSearch}>
+                             <option value="" className="text-sm opacity-70">Phương tiện</option>
                             {elm}
                         </select>
                         <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">

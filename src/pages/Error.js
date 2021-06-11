@@ -1,6 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import error from '../image/404-light.gif';
+import {Link, useHistory} from 'react-router-dom'
 function Error(props) {
+
+    const history = useHistory();
+
+    useEffect(() => {
+        document.title = 'Không tìm thấy | Transper'
+    },[])
+
     return (
         <div className="h-screen w-screen flex items-center justify-center" style={{ backgroundColor: '#e1ff78' }}>
             <div>
@@ -11,10 +19,12 @@ function Error(props) {
                     </p>
                 </div>
                 <div className="flex items-center justify-center">
-                    <button className="mr-6 text-white bg-yellow-400 py-3 px-8 text-2xl opacity-90 font-extrabold rounded-md">
+                    <Link to="/" className="mr-6 text-white bg-yellow-400 py-3 px-8 text-2xl opacity-90 font-extrabold rounded-md">
                         Go Home
-                    </button>
-                    <button className="text-white bg-yellow-600 py-3 px-8 text-2xl opacity-90 font-extrabold rounded-md">
+                    </Link>
+                    <button className="text-white bg-yellow-600 py-3 px-8 text-2xl opacity-90 font-extrabold rounded-md"
+                        onClick={() => history.goBack()}
+                    >
                         Back Page
                     </button>
                 </div>

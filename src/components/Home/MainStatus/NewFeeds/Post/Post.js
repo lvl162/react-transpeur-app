@@ -66,12 +66,12 @@ function Post(props) {
                                 </div>
                                 {(index + 1 === check && User.current.id !== item.creatorId) && <div className="duration-500 shadow-md p-4 bg-white absolute rounded-md" style={{ left: "-130px", top: "-160px", width: "300px" }}>
                                     <div className="flex items-center ">
-                                        <div className="avatar bg-avataImage h-20 w-20 bg-cover rounded-full mr-6 cursor-pointer">
-                                        </div>
+                                        <Link to={`/profile/${item.creatorUname}`} className="avatar bg-avataImage h-20 w-20 bg-cover rounded-full mr-6 cursor-pointer">
+                                        </Link>
                                         <div>
                                             <p className="font-bold py-3 text-xl">{`${item.infoUser.lastName} ${item.infoUser.firstName}`}</p>
                                             <p className="opacity-75 text-sm">{`Thành Phố: ${item.infoUser.address}`}</p>
-                                            <p className="opacity-75 text-sm">{`CMND : ${item.infoUser.idCardNumber}`}</p>
+                                            <p className="opacity-75 text-sm">{`SĐT : ${item.infoUser.phoneNumber}`}</p>
                                         </div>
                                     </div>
                                     <div className="flex justify-end items-center mt-2">

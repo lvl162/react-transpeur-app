@@ -38,7 +38,7 @@ function RightListFriend(props) {
                         </div>
                         <div className="text-base pl-1">
                             <p>{`${item.lastName} ${item.firstName}`}</p>
-                            {/* <p className="text-gray-400">{item.email}</p> */}
+                            <p className="text-gray-400">{item.email}</p>
                         </div>
                     </Link>
                 </div>

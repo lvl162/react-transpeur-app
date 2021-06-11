@@ -2,7 +2,6 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 
 export const infoOtherUser = createAsyncThunk('user/login', async (params, thunkAPI) => {
-    console.log(params)
     // const dataUser = await axios.get(`${Config.API_URL}/api/user-information/uname/${params.id}`, {
     //     headers: {
     //         'Authorization': `Bearer ${params.header}`

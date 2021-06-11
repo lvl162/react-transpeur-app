@@ -9,8 +9,6 @@ const FormDatePicker = (props) => {
 
     const [startDate, setStartDate] = useState(new Date(dob));
 
-    console.log(startDate)
-
     const ExampleCustomInput = forwardRef(
         ({ value, onClick }, ref) => (
             <div className="rounded cursor-pointer mx-3">
