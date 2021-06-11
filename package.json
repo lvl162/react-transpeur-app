@@ -25,6 +25,7 @@
     "react-datepicker": "^3.8.0",
     "react-dom": "^17.0.1",
     "react-icons": "^4.2.0",
+    "react-idle-timer": "^4.6.4",
     "react-rating-stars-component": "^2.2.0",
     "react-redux": "^7.2.3",
     "react-router-dom": "^5.2.0",
@@ -40,6 +41,7 @@
     "web-vitals": "^1.1.1"
   },
   "scripts": {
+    "cc": "craco start",
     "heroku-prebuild": "export NPM_CONFIG_PRODUCTION=false; export NODE_ENV=; NPM_CONFIG_PRODUCTION=false NODE_ENV=development npm install --only=dev --dev",
     "heroku-postbuild": "export NPM_CONFIG_PRODUCTION=true; export NODE_ENV=production;",
     "start": "node server.js",

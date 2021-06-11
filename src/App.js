@@ -14,7 +14,7 @@ import AlertTemplate from "react-alert-template-basic";
 import axios from 'axios';
 import * as Config from './constants/Config';
 import Error from './pages/Error';
-
+import { useIdleTimer } from 'react-idle-timer'
 
 function App(props) {
 
@@ -25,6 +25,33 @@ function App(props) {
 
 	const dispatch = useDispatch();
 
+
+	const handleOnIdle = async (event) => {
+		await axios.get(`https://chatchit69.herokuapp.com/api/active/disconnect/${username}`, {
+			headers: {
+				'Authorization': `Bearer ${accessToken}`
+			}
+		}).then(res => res);
+		console.log('user is idle', event)
+		console.log('last active', getLastActiveTime())
+	}
+
+	const handleOnActive = async (event) => {
+		await axios.get(`${Config.API_URL}/api/active/connect/${username}`, {
+			headers: {
+				'Authorization': `Bearer ${accessToken}`
+			}
+		}).then(res => res);
+		console.log('user is active', event)
+		console.log('time remaining', getRemainingTime())
+	}
+
+	const { getRemainingTime, getLastActiveTime } = useIdleTimer({
+		timeout: 1000 * 60 * 30,
+		onIdle: handleOnIdle,
+		onActive: handleOnActive,
+		debounce: 500
+	})
 
 	async function fetchData() {
 		await dispatch(fetchUser(accessToken));
@@ -52,18 +79,25 @@ function App(props) {
 		main: Error,
 	});
 
-	const doSomeThing = () => {
-		axios.get(`https://chatchit69.herokuapp.com/api/active/disconnect/${username}`, {
+	const doSomeThing = async (e) => {
+		// var message = "\o/";
+
+		// (e || window.event).returnValue = message; //Gecko + IE
+
+		await axios.get(`https://chatchit69.herokuapp.com/api/active/disconnect/${username}`, {
 			headers: {
 				'Authorization': `Bearer ${accessToken}`
 			}
 		}).then(res => res);
+		// console.log(message);
+		setTimeout(function () { return; }, 200)
+		// return message;
 	}
 
 	const setupBeforeUnLoad = () => {
 		window.addEventListener('beforeunload', (e) => {
 			e.preventDefault();
-			return doSomeThing();
+			return doSomeThing(e);
 		})
 	}
 
