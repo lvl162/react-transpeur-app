@@ -16,6 +16,20 @@ function FormChat(props) {
 
     const [message, setMessage] = useState([]);
 
+
+
+    const messagesEndRef = useRef(null);
+
+    const [check, setCheck] = useState(false);
+
+
+
+    const scrollToBottom = () => {
+        messagesEndRef.current.scrollIntoView({ behavior: "smooth" });
+    };
+
+    const [mess, setMess] = useState('');
+
     useEffect(() => {
         setMessage(arr);
         if (!checkOther) {
@@ -23,16 +37,6 @@ function FormChat(props) {
         }
         scrollToBottom();
     }, [idChat])
-
-    const [check, setCheck] = useState(false);
-
-    const messagesEndRef = useRef(null);
-
-    const scrollToBottom = () => {
-        messagesEndRef.current.scrollIntoView({ behavior: "smooth" });
-    };
-
-    const [mess, setMess] = useState('');
 
     useEffect(scrollToBottom, [mess]);
 
@@ -102,6 +106,7 @@ function FormChat(props) {
                     <div className="pt-4">
                         {elm}
                         <div ref={messagesEndRef} />
+                        {scrollToBottom()}
                     </div>
 
                 </Scrollbars>
