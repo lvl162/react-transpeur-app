@@ -72,12 +72,13 @@ function App(props) {
 				fetchData();
 			}
 		})
+		ROUTES.push({
+			path: "*",
+			exact: true,
+			main: Error,
+		});
 	}
-	ROUTES.push({
-		path: "*",
-		exact: true,
-		main: Error,
-	});
+
 
 	const doSomeThing = async (e) => {
 		// var message = "\o/";
