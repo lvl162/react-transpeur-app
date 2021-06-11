@@ -21,6 +21,7 @@ function FormChat(props) {
         if (!checkOther) {
             dispatch(FetchChat({ id: senderId, header: header }));
         }
+        scrollToBottom();
     }, [idChat])
 
     const [check, setCheck] = useState(false);
