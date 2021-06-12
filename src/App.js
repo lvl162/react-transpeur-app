@@ -97,7 +97,7 @@ function App(props) {
 			var data = "data=" + data;
 
 			var status = navigator.sendBeacon(url + "?" + data);
-			console.log("Status of sendBeacon: " + status);
+			// console.log("Status of sendBeacon: " + status);
 		}
 		sendSimpleBeacon(username)
 		// setTimeout(function () { return; }, 200)

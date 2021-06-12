@@ -31,7 +31,7 @@ function Header(props) {
 
 	const [option, setOption] = useState(false);
 
-	useEffect(() => {},[token])
+	useEffect(() => { }, [token])
 
 	// const optionShow = useSelector(state => state.OptionShow);
 
@@ -163,6 +163,7 @@ function Header(props) {
 												dispatch(defaultPlace());
 												dispatch(defaultPlaceName());
 											});
+											dispatch(onLogout())
 										}}
 									>
 										<p>Đăng xuất</p>
