@@ -18,7 +18,7 @@ const login = createSlice({
     reducers: {
         onLogout: (state) => {
             return {
-                currnet : {},
+                ...state,
                 isAuth: false
             }
 
