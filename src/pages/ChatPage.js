@@ -74,7 +74,7 @@ function ChatPage({ match }) {
         idChat = conversation.id;
     }
 
-    if (Active.isAuth === false) {
+    if (Active.isAuth === false || Active.isAuth === null) {
         return <Redirect to="/login" />
     }
     else return <div className="w-full">

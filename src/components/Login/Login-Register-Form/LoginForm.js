@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { unwrapResult } from "@reduxjs/toolkit";
 import axios from 'axios';
 import * as Config from '../../../constants/Config';
-import {saveUserPass} from './../../../reducers/username-password'; 
+import { saveUserPass } from './../../../reducers/username-password';
 
 function LoginForm(props) {
 
@@ -32,6 +32,9 @@ function LoginForm(props) {
         if (checkLogin.isAuth) {
             history.push('/');
         }
+        if (checkLogin.isAuth === null) {
+            history.push('/login');
+        }
     })
 
     const handleChangeLogin = (e) => {
@@ -55,7 +58,7 @@ function LoginForm(props) {
                 if (currentUser.status === 200) {
                     setCheck(true);
                     setLoading(false);
-                    await dispatch(saveUserPass({username: login.username, password: login.password}));
+                    await dispatch(saveUserPass({ username: login.username, password: login.password }));
                     await dispatch(onLogin(currentUser.data));
                     axios.get(`${Config.API_URL}/api/active/connect/${login.username}`, {
                         headers: {
