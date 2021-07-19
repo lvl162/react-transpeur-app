@@ -135,7 +135,7 @@ function App(props) {
 	}
 
 	return (
-		<Router>
+		<Router basename={process.env.PUBLIC_URL}>
 			<Provider template={AlertTemplate} {...options}>
 				<div style={{ fontFamily: 'sans-serif' }}>
 					<div className="Noke">

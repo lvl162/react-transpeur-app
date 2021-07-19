@@ -41,6 +41,7 @@
     "sweetalert": "^2.1.2",
     "web-vitals": "^1.1.1"
   },
+  "homepage": "http://lvl162.github.io/react-transpeur-app",
   "scripts": {
     "cc": "craco start",
     "heroku-prebuild": "export NPM_CONFIG_PRODUCTION=false; export NODE_ENV=; NPM_CONFIG_PRODUCTION=false NODE_ENV=development npm install --only=dev --dev",
@@ -48,7 +49,9 @@
     "start": "node server.js",
     "build": "craco build",
     "test": "craco test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -72,6 +75,7 @@
     "@tailwindcss/postcss7-compat": "^2.0.3",
     "autoprefixer": "^9.8.6",
     "babel-plugin-styled-components": "^1.12.0",
+    "gh-pages": "^3.2.3",
     "postcss": "^7.0.35",
     "postcss-cli": "^8.3.1",
     "redux-devtools-extension": "^2.13.9",
