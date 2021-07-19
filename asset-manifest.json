@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/transpeur/static/css/main.a033aa7a.chunk.css",
-    "main.js": "/transpeur/static/js/main.566b0470.chunk.js",
-    "runtime-main.js": "/transpeur/static/js/runtime-main.7ea62fa8.js",
-    "static/css/2.629e0cab.chunk.css": "/transpeur/static/css/2.629e0cab.chunk.css",
-    "static/js/2.13814814.chunk.js": "/transpeur/static/js/2.13814814.chunk.js",
-    "index.html": "/transpeur/index.html",
-    "static/js/2.13814814.chunk.js.LICENSE.txt": "/transpeur/static/js/2.13814814.chunk.js.LICENSE.txt",
-    "static/media/404-light.1645e7a7.gif": "/transpeur/static/media/404-light.1645e7a7.gif",
-    "static/media/index.css": "/transpeur/static/media/signup.2acb5915.jpg",
-    "static/media/avatabig.png": "/transpeur/static/media/avatabig.e3b79bb5.png"
+    "main.css": "/react-transpeur-app/static/css/main.5c76c85c.chunk.css",
+    "main.js": "/react-transpeur-app/static/js/main.ddf82d43.chunk.js",
+    "runtime-main.js": "/react-transpeur-app/static/js/runtime-main.cd3adf82.js",
+    "static/css/2.629e0cab.chunk.css": "/react-transpeur-app/static/css/2.629e0cab.chunk.css",
+    "static/js/2.30fac217.chunk.js": "/react-transpeur-app/static/js/2.30fac217.chunk.js",
+    "index.html": "/react-transpeur-app/index.html",
+    "static/js/2.30fac217.chunk.js.LICENSE.txt": "/react-transpeur-app/static/js/2.30fac217.chunk.js.LICENSE.txt",
+    "static/media/404-light.1645e7a7.gif": "/react-transpeur-app/static/media/404-light.1645e7a7.gif",
+    "static/media/index.css": "/react-transpeur-app/static/media/signup.2acb5915.jpg",
+    "static/media/avatabig.png": "/react-transpeur-app/static/media/avatabig.e3b79bb5.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.7ea62fa8.js",
+    "static/js/runtime-main.cd3adf82.js",
     "static/css/2.629e0cab.chunk.css",
-    "static/js/2.13814814.chunk.js",
-    "static/css/main.a033aa7a.chunk.css",
-    "static/js/main.566b0470.chunk.js"
+    "static/js/2.30fac217.chunk.js",
+    "static/css/main.5c76c85c.chunk.css",
+    "static/js/main.ddf82d43.chunk.js"
   ]
 }
