@@ -11,7 +11,7 @@ function EditProfilePage(props) {
 
     const Active = useSelector(state => state.CheckLogin);
 
-    if (Active.isAuth === false|| Active.isAuth === null) {
+    if (Active.isAuth === false) {
         return <Redirect to="/login" />
     }
     else return <div className="w-full">
