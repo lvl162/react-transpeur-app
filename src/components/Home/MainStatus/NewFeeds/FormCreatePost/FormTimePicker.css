@@ -1,0 +1,7 @@
+.react-datepicker {
+    left: 49px !important;
+}
+
+.react-datepicker__triangle {
+    display: none;
+}

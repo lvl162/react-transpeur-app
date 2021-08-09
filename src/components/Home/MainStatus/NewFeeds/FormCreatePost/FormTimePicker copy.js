@@ -5,6 +5,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import {ChangePlace} from '../../../../../reducers/infoPlace';
 import {ChangePlaceName} from '../../../../../reducers/infoPlaceName';
 import moment from 'moment';
+import './FormTimePicker.css';
 
 const FormTimePicker = (props) => {
 
