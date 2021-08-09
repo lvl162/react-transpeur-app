@@ -107,7 +107,7 @@ function FormCreate(props) {
                                     <div className="bg-avataImage h-16 w-16 bg-cover rounded-full mr-6"></div>
                                     <input onChange={(e) => {
                                         setContent(e.target.value)
-                                    }} type="text" placeholder="Thông tin chi tiết ..." className="text-sm font-normal px-3 focus:outline-none focus:border-none" />
+                                    }} type="text" placeholder="Thông tin chi tiết ..." className="text-sm w-full font-normal px-3 focus:outline-none focus:border-none" />
                                 </div>
                             </div>
                             <div className="py-3 px-4 grid grid-flow-row grid-cols-3 grid-rows-4 gap-4">
