@@ -16,7 +16,7 @@
     "firebase": "^8.3.2",
     "js-cookie": "^2.2.1",
     "moment": "^2.29.1",
-    "node-sass": "^5.0.0",
+    "node-sass": "^6.0.1",
     "path": "^0.12.7",
     "react": "^17.0.1",
     "react-alert": "^7.0.3",
@@ -41,7 +41,6 @@
     "sweetalert": "^2.1.2",
     "web-vitals": "^1.1.1"
   },
-  "homepage": "http://lvl162.github.io/react-transpeur-app",
   "scripts": {
     "cc": "craco start",
     "heroku-prebuild": "export NPM_CONFIG_PRODUCTION=false; export NODE_ENV=; NPM_CONFIG_PRODUCTION=false NODE_ENV=development npm install --only=dev --dev",

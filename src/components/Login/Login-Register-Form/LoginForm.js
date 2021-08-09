@@ -22,6 +22,8 @@ function LoginForm(props) {
         password: "",
     });
 
+    const [checkShowPassword, setCheckShowPassword] = useState(false);
+
     const [mess, setMess] = useState(Mess.LOGIN_FAIL_INFO);
 
     const [check, setCheck] = useState(true);
@@ -31,9 +33,6 @@ function LoginForm(props) {
     useEffect(() => {
         if (checkLogin.isAuth) {
             history.push('/');
-        }
-        if (checkLogin.isAuth === null) {
-            history.push('/login');
         }
     })
 
@@ -99,7 +98,7 @@ function LoginForm(props) {
 
                 <div className="flex items-center">
                     <div className="bg-logo bg-no-repeat bg-cover w-32 h-32 cursor-pointer"></div>
-                    <h1 className="px-3 text-xl font-medium">TRANSPER</h1>
+                    <h1 className="px-3 text-xl font-medium" style={{letterSpacing: '4px'}}>TRANSPER</h1>
                 </div>
                 <div className="pl-3 mt-20">
                     <h1 className="text-3xl font-semibold mb-1">Đăng nhập</h1>
@@ -121,14 +120,20 @@ function LoginForm(props) {
                     </div>
                     <div className="animate-fade-in-up-1 border-b border-gray-200 flex items-center justify-between rounded py-1 mt-4 input">
                         <input
-                            type="password"
+                            type={checkShowPassword ? 'text' : 'password'}
                             placeholder="Mật khẩu"
                             className="pl-2 w-full mr-2 py-1"
                             name="password"
                             value={login.password}
                             onChange={handleChangeLogin}
                         />
-                        <i className="fas fa-lock opacity-50 mr-2"></i>
+                        {
+                            login.password.length > 0 ?
+                                <i
+                                    className={`fas fa-eye cursor-pointer mr-2 ${checkShowPassword ? 'text-blue-600' : 'opacity-70'}`}
+                                    onClick={() => setCheckShowPassword(!checkShowPassword)} /> :
+                                <i className="fas fa-lock opacity-50 mr-2"></i>
+                        }
                     </div>
                     {!check && (
                         <p className="text-sm text-red-600 ml-1 mt-2 italic">{mess}</p>

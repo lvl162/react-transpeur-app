@@ -4,6 +4,7 @@ import axios from 'axios';
 import { useSelector, useDispatch } from 'react-redux';
 import { FetchPost } from '../../reducers/fetchMyPost';
 import swal from 'sweetalert';
+import { API_URL } from '../../constants/Config';
 
 function MyPost(props) {
 
@@ -61,7 +62,7 @@ function MyPost(props) {
         })
             .then((willDelete) => {
                 if (willDelete) {
-                    axios.get(`https://chatchit69.herokuapp.com/api/travel/deactive/${item.id}`,
+                    axios.get(`${API_URL}/api/travel/deactive/${item.id}`,
                         {
                             headers: {
                                 'Authorization': `Bearer ${token}`

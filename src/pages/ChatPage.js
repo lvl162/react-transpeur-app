@@ -27,7 +27,7 @@ function ChatPage({ match }) {
     }
 
     useEffect(() => {
-        document.title = 'Nhắn tin | Transper'
+        document.title = 'Tin nhắn | Transper'
     }, []);
 
     useEffect(() => {
@@ -74,7 +74,7 @@ function ChatPage({ match }) {
         idChat = conversation.id;
     }
 
-    if (Active.isAuth === false || Active.isAuth === null) {
+    if (Active.isAuth === false) {
         return <Redirect to="/login" />
     }
     else return <div className="w-full">
