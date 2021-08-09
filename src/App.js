@@ -1,9 +1,5 @@
 import React, { useEffect } from 'react';
-<<<<<<< HEAD
 import { HashRouter as Router, Route, Switch } from 'react-router-dom';
-=======
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
->>>>>>> faf023f5303c0b2f3d1b21f26cef130cb8795ad9
 import ROUTES from './routes';
 import firebase from 'firebase';
 import { setData } from './reducers/place';
@@ -89,11 +85,7 @@ function App(props) {
   const doSomeThing = async (e) => {
     function sendSimpleBeacon(data) {
       if (!navigator.sendBeacon) return;
-<<<<<<< HEAD
       var url = `${API_URL}/api/active/disconnect`;
-=======
-      var url = 'https://chatchit69.herokuapp.com/api/active/disconnect';
->>>>>>> faf023f5303c0b2f3d1b21f26cef130cb8795ad9
       var data = 'data=' + data;
       var status = navigator.sendBeacon(url + '?' + data);
     }
@@ -112,11 +104,7 @@ function App(props) {
     FetchData();
     dispatch(onLogin());
     axios
-<<<<<<< HEAD
       .get(`${API_URL}/api/active/connect/${username}`, {
-=======
-      .get(`${Config.API_URL}/api/active/connect/${username}`, {
->>>>>>> faf023f5303c0b2f3d1b21f26cef130cb8795ad9
         headers: {
           Authorization: `Bearer ${accessToken}`,
         },
@@ -135,11 +123,7 @@ function App(props) {
   }
 
   return (
-<<<<<<< HEAD
     <Router>
-=======
-    <Router basename={process.env.PUBLIC_URL}>
->>>>>>> faf023f5303c0b2f3d1b21f26cef130cb8795ad9
       <Provider template={AlertTemplate} {...options}>
         <div style={{ fontFamily: 'sans-serif' }}>
           <div className='Noke'>
