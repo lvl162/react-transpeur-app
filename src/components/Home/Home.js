@@ -22,12 +22,13 @@ function Home(props) {
 
     useEffect( () => {
         async function fetchData() {
-           await dispatch(FetchList(token));
-           await dispatch(FetchChat({id: id, header : token}));
-           await dispatch(FetchChat2({id: id, header : token}));
+            
+           token ?? await dispatch(FetchList(token));
+        //    await dispatch(FetchChat({id: id, header : token}));
+        //    await dispatch(FetchChat2({id: id, header : token}));
         }
         fetchData();
-      }, [token]);
+      }, [dispatch, token]);
 
     const checkModal = useSelector(state => state.ShowModal);
 
